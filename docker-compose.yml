@@ -1,0 +1,14 @@
+version: "3"
+
+services: 
+    app:
+        image: user_server
+        environment: 
+            MONGO_URL: "mongodb://db:27017/test"
+        build:
+            context: .
+            dockerfile: .docker/Dockerfile
+        ports:
+            - "3000:3000"
+    db:
+        image: mongo
